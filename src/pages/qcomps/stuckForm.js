@@ -1,36 +1,36 @@
 import { useState } from 'react';
 
 export default function Form() {
-  let firstName = '';
-  let lastName = '';
+    const [firstName, setFirstName] = useState(''); // State for first name
+    const [lastName, setLastName] = useState(''); // State for last name
 
-  function handleFirstNameChange(e) {
-    firstName = e.target.value;
-  }
+    function handleFirstNameChange(e) {
+        setFirstName(e.target.value); // Update first name state
+    }
 
-  function handleLastNameChange(e) {
-    lastName = e.target.value;
-  }
+    function handleLastNameChange(e) {
+        setLastName(e.target.value); // Update last name state
+    }
 
-  function handleReset() {
-    firstName = '';
-    lastName = '';
-  }
+    function handleReset() {
+        setFirstName(''); // Reset first name state
+        setLastName(''); // Reset last name state
+    }
 
-  return (
-    <form onSubmit={e => e.preventDefault()}>
-      <input
-        placeholder="First name"
-        value={firstName}
-        onChange={handleFirstNameChange}
-      />
-      <input
-        placeholder="Last name"
-        value={lastName}
-        onChange={handleLastNameChange}
-      />
-      <h1>Hi, {firstName} {lastName}</h1>
-      <button onClick={handleReset}>Reset</button>
-    </form>
-  );
+    return (
+        <form onSubmit={e => e.preventDefault()}>
+            <input
+                placeholder="First name"
+                value={firstName}
+                onChange={handleFirstNameChange}
+            />
+            <input
+                placeholder="Last name"
+                value={lastName}
+                onChange={handleLastNameChange}
+            />
+            <h1>Hi, {firstName} {lastName}</h1>
+            <button type="button" onClick={handleReset}>Reset</button>
+        </form>
+    );
 }
